@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
 <header>
     <h1>Ma Todo App Flask</h1>
 </header>
@@ -17,5 +16,6 @@
     {% block content %}{% endblock %}
 </main>
 
+<script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>

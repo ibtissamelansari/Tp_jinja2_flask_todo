@@ -32,9 +32,28 @@ main {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    transition: 0.25s;
+}
+
+.search-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 6px #4a90e233;
+}
+
 .add-form {
     display: flex;
-    margin-bottom: 2rem;
 }
 
 .add-form input {
@@ -93,11 +112,6 @@ main {
     transition: 0.2s;
 }
 
-.todo-title:hover {
-    background-color: #f0f4ff;
-    color: #4a90e2;
-}
-
 .task-link {
     display: block;
     width: 100%;
@@ -113,7 +127,7 @@ main {
     color: #4a90e2;
 }
 
-.todo-row.done .todo-title {
+.todo-row.done .task-link {
     text-decoration: line-through;
     color: #999;
 }

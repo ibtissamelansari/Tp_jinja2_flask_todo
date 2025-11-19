@@ -3,12 +3,14 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-<h2>Bienvenue dans ma Todo App</h2>
+<div class="controls">
+    <input type="text" id="search" placeholder="Rechercher une tâche..." class="search-input">
 
-<form action="{{ url_for('add_task') }}" method="POST" class="add-form">
-    <input type="text" name="title" placeholder="Nouvelle tâche..." required>
-    <button type="submit">Ajouter</button>
-</form>
+    <form action="{{ url_for('add_task') }}" method="POST" class="add-form">
+        <input type="text" name="title" placeholder="Nouvelle tâche..." required>
+        <button type="submit">Ajouter</button>
+    </form>
+</div>
 
 <table class="todo-table">
   <tbody>
