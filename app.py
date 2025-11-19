@@ -21,6 +21,19 @@ def add_task():
 
     return redirect(url_for("home"))  
 
+@app.route("/done/<int:task_id>")
+def done_task(task_id):
+    for task in tasks:
+        if task["id"] == task_id:
+            task["done"] = True
+            break
+    return redirect(url_for("home"))
+
+@app.route("/delete/<int:task_id>")
+def delete_task(task_id):
+    global tasks
+    tasks = [task for task in tasks if task["id"] != task_id]
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":

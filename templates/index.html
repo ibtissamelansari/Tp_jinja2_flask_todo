@@ -3,35 +3,41 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-  <h2>Bienvenue dans ma Todo App</h2>
+<h2>Bienvenue dans ma Todo App</h2>
 
-  <div>
-    <form action="{{ url_for('add_task') }}" method="POST">
-        <input type="text" name="title" placeholder="Nouvelle tâche..." required>
-        <button type="submit">Ajouter</button>
-    </form>
-  </div>
+<form action="{{ url_for('add_task') }}" method="POST" class="add-form">
+    <input type="text" name="title" placeholder="Nouvelle tâche..." required>
+    <button type="submit">Ajouter</button>
+</form>
 
-  <table>
-    <tbody>
-      {% if tasks %}
-        {% for task in tasks %}
-          <tr>
-            <td>{{ task.title }}</td>
+<table class="todo-table">
+  <tbody>
+    {% for task in tasks %}
+      <tr class="todo-row {% if task.done %}done{% endif %}">
+        
+        <td class="todo-title">{{ task.title }}</td>
 
-            {% if task.done %}
-              <td style="color: green;">✔ Fait</td>
-            {% else %}
-              <td style="color: red;">✖ Non fait</td>
-            {% endif %}
+        <td class="todo-status">
+          {% if task.done %}
+            <span class="status done">✔ Fait</span>
+          {% else %}
+            <span class="status pending">✖ Non fait</span>
+          {% endif %}
+        </td>
 
-          </tr>
-        {% endfor %}
-      {% else %}
-        <tr>
-          <td>Aucune tâche pour le moment</td>
-        </tr>
-      {% endif %}
-    </tbody>
-  </table>
+        <td>
+          {% if not task.done %}
+            <a href="{{ url_for('done_task', task_id=task.id) }}" class="btn btn-done">Terminer</a>
+          {% endif %}
+        </td>
+
+        <td>
+          <a href="{{ url_for('delete_task', task_id=task.id) }}" class="btn btn-delete">Supprimer</a>
+        </td>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock %}
