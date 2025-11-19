@@ -1,0 +1,21 @@
+1. Différence GET / POST
+
+  GET : récupère des informations depuis le serveur, les données sont visibles dans l’URL, pas sûr pour des informations sensibles.
+
+  POST : envoie des données au serveur (par ex. formulaire), non visibles dans l’URL, utilisé pour créer ou modifier des ressources.
+
+2. Rôle de redirect(url_for(...))
+
+  Redirige l’utilisateur vers une autre route après un traitement côté serveur (ex : après ajout ou suppression de tâche).
+
+  url_for("home") génère dynamiquement l’URL de la route home.
+
+3. Rôle des blocs et héritage dans Jinja
+
+  Les blocs définissent des sections modifiables dans un template parent.
+
+  L’héritage permet à plusieurs pages d’utiliser une structure commune (base.html) et de remplir uniquement le contenu spécifique.
+
+4. Exemple où JavaScript côté client est plus adapté
+
+  Masquer/afficher des tâches en temps réel (filtre de recherche), confirmation avant suppression, animations, validation de formulaire sans recharger la page.
