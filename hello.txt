@@ -1,2 +1,0 @@
-https://github.com/ibtissamelansari/Tp_jinja2_flask_todo.git
-https://github.com/ibtissamelansari/Tp_jinja2_flask_todo.git
